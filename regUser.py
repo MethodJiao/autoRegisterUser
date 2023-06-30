@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from PIL import Image
 import pytesseract
 from faker  import Faker
+import random
+
 class UserInfo:
     def __init__(self):
         self.phoneNum = "18611122444"
@@ -15,7 +17,7 @@ class UserInfo:
 def registerUser(driver,user_info:UserInfo):
     # 点击新增用户按钮
     btn_add =  driver.find_element(By.XPATH,'//main//div//button[@class="smallbtn addBtn"]')
-    btn_add.click()
+    btn_add.click() 
     sleep(2)
     # 账号手机
     phone_num = driver.find_element(By.XPATH,'//main//div//input[@class="el-input__inner" and @placeholder="请输入手机号"]')
@@ -94,7 +96,6 @@ def login(driver)->bool:
     enterprise_manager.click()
     sleep(2)
 
-
 def trylogin(driver):
     while True:
         try:
@@ -103,9 +104,7 @@ def trylogin(driver):
             break
         except:
             pass
-import random
- 
- 
+
 def random_name():
     # 删减部分，比较大众化姓氏
     firstName = "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜戚谢邹喻水云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳鲍史唐费岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅卞齐康伍余元卜顾孟平" \
@@ -181,7 +180,7 @@ if __name__ == '__main__':
     #第一次登录
     trylogin(driver)
     # 拟新增注册人数
-    new_user_add_number = 10
+    new_user_add_number = random.randint(1,100)
     
     new_user_add_number_current = 0
     while True:
