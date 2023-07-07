@@ -181,7 +181,7 @@ if __name__ == '__main__':
     trylogin(driver)
     # 拟新增注册人数
     new_user_add_number = random.randint(1,100)
-    
+    print("注册人数：" + new_user_add_number)
     new_user_add_number_current = 0
     while True:
         try:
